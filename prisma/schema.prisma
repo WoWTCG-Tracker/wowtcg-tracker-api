@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-py"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model card {
+  name      String    @id @unique(map: "name_UNIQUE") @db.VarChar(32)
+  type      card_type
+  mana_cost Int       @db.UnsignedInt
+  print     print[]
+}
+
+model collection {
+  name                  String                  @db.VarChar(64)
+  owner_id              Int                     @db.UnsignedInt
+  id                    Int                     @unique(map: "id_UNIQUE") @default(autoincrement()) @db.UnsignedInt
+  user                  user                    @relation(fields: [owner_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_Collections_user1")
+  collections_has_print collections_has_print[]
+
+  @@id([id, owner_id])
+  @@index([owner_id], map: "fk_Collections_user1_idx")
+}
+
+model collections_has_print {
+  collections_id                Int        @db.UnsignedInt
+  print_card_name               String     @db.VarChar(32)
+  print_expansion_formated_name String     @db.VarChar(32)
+  quantity                      Int?       @db.UnsignedInt
+  collection                    collection @relation(fields: [collections_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_Collections_has_print_Collections1")
+  print                         print      @relation(fields: [print_card_name, print_expansion_formated_name], references: [card_name, expansion_formated_name], onDelete: NoAction, onUpdate: NoAction, map: "fk_Collections_has_print_print1")
+
+  @@id([collections_id, print_card_name, print_expansion_formated_name])
+  @@index([collections_id], map: "fk_Collections_has_print_Collections1_idx")
+  @@index([print_card_name, print_expansion_formated_name], map: "fk_Collections_has_print_print1_idx")
+}
+
+model deck {
+  id             Int              @unique(map: "id_UNIQUE") @default(autoincrement()) @db.UnsignedInt
+  name           String           @db.VarChar(128)
+  owner_id       Int              @db.UnsignedInt
+  user           user             @relation(fields: [owner_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_deck_user1")
+  deck_has_print deck_has_print[]
+
+  @@id([id, owner_id])
+  @@index([owner_id], map: "fk_deck_user1_idx")
+}
+
+model deck_has_print {
+  print_card_name               String @db.VarChar(32)
+  print_expansion_formated_name String @db.VarChar(32)
+  deck_id                       Int    @db.UnsignedInt
+  quantity                      Int?   @db.UnsignedInt
+  deck                          deck   @relation(fields: [deck_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_deck_has_print_deck1")
+  print                         print  @relation(fields: [print_card_name, print_expansion_formated_name], references: [card_name, expansion_formated_name], onDelete: NoAction, onUpdate: NoAction, map: "fk_deck_has_print_print1")
+
+  @@id([print_card_name, print_expansion_formated_name, deck_id])
+  @@index([deck_id], map: "fk_deck_has_print_deck1_idx")
+  @@index([print_card_name, print_expansion_formated_name], map: "fk_deck_has_print_print1_idx")
+}
+
+model print {
+  card_name               String                  @db.VarChar(32)
+  expansion_formated_name String                  @db.VarChar(32)
+  id                      Int                     @unique(map: "ID_UNIQUE") @db.UnsignedInt
+  image_font_url          String                  @db.VarChar(255)
+  image_back_url          String?                 @db.VarChar(255)
+  rules                   String?                 @db.VarChar(512)
+  card                    card                    @relation(fields: [card_name], references: [name], onDelete: NoAction, onUpdate: NoAction, map: "fk_print_card")
+  collections_has_print   collections_has_print[]
+  deck_has_print          deck_has_print[]
+
+  @@id([card_name, expansion_formated_name])
+  @@index([expansion_formated_name], map: "fk_print_expansion1_idx")
+}
+
+model user {
+  nick       String       @unique(map: "nick_UNIQUE") @db.VarChar(32)
+  email      String       @unique(map: "email_UNIQUE") @db.VarChar(128)
+  id         Int          @id @unique(map: "id_UNIQUE") @default(autoincrement()) @db.UnsignedInt
+  collection collection[]
+  deck       deck[]
+}
+
+enum card_type {
+  Ability
+  Instant
+  Equipment
+  Hero
+  Ally
+}
