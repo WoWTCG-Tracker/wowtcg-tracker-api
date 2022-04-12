@@ -1,7 +1,7 @@
 """Unit tests for API functions"""
 import unittest
 
-from api import api_root
+from api import read_root
 
 
 class TestRoot(unittest.TestCase):
