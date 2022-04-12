@@ -6,8 +6,6 @@ from fastapi import FastAPI
 load_dotenv()
 app = FastAPI()
 
-@app.get("/")
-async def read_root():
 
 @app.get("/")
 async def read_root():
