@@ -1,6 +1,5 @@
 """Unit tests for API functions"""
 import unittest
-import asyncio
 
 from api import read_root
 
