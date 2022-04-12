@@ -6,6 +6,17 @@ from fastapi import FastAPI
 load_dotenv()
 app = FastAPI()
 
+<<<<<<< Updated upstream
 @app.get("/")
 async def read_root():
+=======
+
+@app.get("/")
+async def read_root():
+    """
+    Root of the API
+
+    Root is set to return "Hello world!" string.
+    """
+>>>>>>> Stashed changes
     return "Hello world!"
