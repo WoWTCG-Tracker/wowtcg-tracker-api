@@ -1,3 +1,18 @@
 {
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "askForPassword": true,
+            "driver": "MariaDB",
+            "name": "wowtcg-tracker-db",
+            "database": "wowtcg-tracker-db",
+            "username": "administrator"
+        }
+    ]
 }
