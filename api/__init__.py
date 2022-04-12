@@ -1,20 +1,11 @@
 """API server for WoWTCG Tracker"""
 import os
-import flask
 from dotenv import load_dotenv
+from fastapi import FastAPI
 
 load_dotenv()
-app = flask.Flask(__name__)
+app = FastAPI()
 
-if os.getenv("FLASK_ENV") == "development":
-    app.config["DEBUG"] = True
-
-
-@app.route("/", methods=["GET"])
-def api_root():
-    """API root"""
-    return "Hello world!"
-
-
-if __name__ == "__main__":
-    app.run()
+@app.get("/")
+async def read_root():
+    return "Hello wordl!"

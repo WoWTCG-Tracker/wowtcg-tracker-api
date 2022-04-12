@@ -13,7 +13,7 @@ class TestRoot(unittest.TestCase):
 
     def test_root(self):
         """Test the root of the API"""
-        self.assertEqual(api_root(), "Hello world!")
+        self.assertEqual(read_root(), "Hello world!")
 
 
 if __name__ == "__main__":
