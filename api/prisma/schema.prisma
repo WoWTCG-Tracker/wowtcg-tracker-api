@@ -8,10 +8,11 @@ datasource db {
 }
 
 model card {
-  name      String    @id @unique(map: "name_UNIQUE") @db.VarChar(32)
-  type      card_type
-  mana_cost Int       @db.UnsignedInt
-  print     print[]
+  name               String               @id @unique(map: "name_UNIQUE") @db.VarChar(32)
+  type               card_type
+  mana_cost          Int                  @db.UnsignedInt
+  card_has_more_type card_has_more_type[]
+  print              print[]
 }
 
 model collection {
@@ -70,6 +71,7 @@ model print {
   image_back_url          String?                 @db.VarChar(255)
   rules                   String?                 @db.VarChar(512)
   card                    card                    @relation(fields: [card_name], references: [name], onDelete: NoAction, onUpdate: NoAction, map: "fk_print_card")
+  expansion               expansion               @relation(fields: [expansion_formated_name], references: [formated_name], onDelete: NoAction, onUpdate: NoAction, map: "fk_print_expansion1")
   collections_has_print   collections_has_print[]
   deck_has_print          deck_has_print[]
 
@@ -78,11 +80,56 @@ model print {
 }
 
 model user {
-  nick       String       @unique(map: "nick_UNIQUE") @db.VarChar(32)
+  username   String       @unique(map: "nick_UNIQUE") @db.VarChar(32)
   email      String       @unique(map: "email_UNIQUE") @db.VarChar(128)
   id         Int          @id @unique(map: "id_UNIQUE") @default(autoincrement()) @db.UnsignedInt
   collection collection[]
   deck       deck[]
+}
+
+model card_has_more_type {
+  card_name      String    @db.VarChar(32)
+  more_type_type String    @db.VarChar(32)
+  card           card      @relation(fields: [card_name], references: [name], onDelete: NoAction, onUpdate: NoAction, map: "fk_card_has_more_type_card1")
+  more_type      more_type @relation(fields: [more_type_type], references: [type], onDelete: NoAction, onUpdate: NoAction, map: "fk_card_has_more_type_more_type1")
+
+  @@id([card_name, more_type_type])
+  @@index([card_name], map: "fk_card_has_more_type_card1_idx")
+  @@index([more_type_type], map: "fk_card_has_more_type_more_type1_idx")
+}
+
+model expansion {
+  formated_name           String  @unique(map: "formated_name_UNIQUE") @db.VarChar(32)
+  name                    String  @unique(map: "name_UNIQUE") @db.VarChar(32)
+  set_formated_name       String  @db.VarChar(32)
+  set_block_formated_name String  @db.VarChar(32)
+  set                     set     @relation(fields: [set_formated_name, set_block_formated_name], references: [formated_name, block_formated_name], onDelete: NoAction, onUpdate: NoAction, map: "fk_expansion_set1")
+  print                   print[]
+
+  @@id([formated_name, set_formated_name, set_block_formated_name])
+  @@index([set_formated_name, set_block_formated_name], map: "fk_expansion_set1_idx")
+}
+
+model more_type {
+  type               String               @id @unique(map: "type_UNIQUE") @db.VarChar(32)
+  card_has_more_type card_has_more_type[]
+}
+
+model block {
+  name          String @unique(map: "name_UNIQUE") @db.VarChar(32)
+  formated_name String @id @unique(map: "formated_name_UNIQUE") @db.VarChar(32)
+  set           set[]
+}
+
+model set {
+  name                String      @unique(map: "name_UNIQUE") @db.VarChar(32)
+  formated_name       String      @unique(map: "formated_name_UNIQUE") @db.VarChar(32)
+  block_formated_name String      @db.VarChar(32)
+  block               block       @relation(fields: [block_formated_name], references: [formated_name], onDelete: NoAction, onUpdate: NoAction, map: "fk_set_block1")
+  expansion           expansion[]
+
+  @@id([formated_name, block_formated_name])
+  @@index([block_formated_name], map: "fk_set_block1_idx")
 }
 
 enum card_type {
