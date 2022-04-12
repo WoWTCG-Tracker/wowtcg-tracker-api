@@ -1,5 +1,6 @@
 """Unit tests for API functions"""
 import unittest
+import asyncio
 
 from api import read_root
 
@@ -11,9 +12,9 @@ class TestRoot(unittest.TestCase):
     Root is set to return "Hello world!" string.
     """
 
-    def test_root(self):
+    async def test_root(self):
         """Test the root of the API"""
-        self.assertEqual(read_root(), "Hello world!")
+        self.assertEqual(await read_root(), "Hello world!")
 
 
 if __name__ == "__main__":
