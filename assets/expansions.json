@@ -1,0 +1,320 @@
+{
+  "basic": {
+    "name": "Basic",
+    "blocks": {
+      "timewalker": {
+        "name": "Timewalker",
+        "expansions": {
+          "reign-of-fire": "Reign of Fire",
+          "betrayal-of-the-guardian": "Betrayal of the Guardian",
+          "war-of-the-ancients": "War of the Ancients",
+          "timewalkers": "Timewalkers",
+          "timewalkers-badges-of-justice": "Timewalkers Badges of Justice",
+          "timewalkers-crafted": "Timewalkers Crafted"
+        }
+      },
+      "aftermath": {
+        "name": "Aftermath",
+        "expansions": {
+          "tomb-of-the-forgotten": "Tomb of the Forgotten",
+          "crown-of-the-heavens": "Crown of the Heavens",
+          "throne-of-the-tides": "Throne of the Tides",
+          "aftermath-badges-of-justice": "Aftermath Badges of Justice",
+          "aftermath-crafted": "Aftermath Crafted"
+        }
+      },
+      "worldbreaker": {
+        "name": "Worldbreaker",
+        "expansions": {
+          "twilight-of-the-dragons": "Twilight of the Dragons",
+          "war-of-the-elements": "War of the Elements",
+          "worldbreaker": "Worldbreaker",
+          "worldbreaker-badges-of-justice": "Worldbreaker Badges of Justice",
+          "worldbreaker-crafted": "Worldbreaker Crafted"
+        }
+      },
+      "scourgewar": {
+        "name": "Scourgewar",
+        "expansions": {
+          "icecrown": "Icecrown",
+          "icecrown-badges": "Icecrown Badges",
+          "icecrown-crafted": "Icecrown Crafted",
+          "wrathgate": "Wrathgate",
+          "wrathgate-badges": "Wrathgate Badges",
+          "wrathgate-crafted": "Wrathgate Crafted",
+          "scourgewar": "Scourgewar",
+          "scourgewar-badges": "Scourgewar Badges",
+          "scourgewar-crafted": "Scourgewar Crafted"
+        }
+      },
+      "drums-of-war": {
+        "name": "Drums of War",
+        "expansions": {
+          "fields-of-honor": "Fields of Honor",
+          "fields-of-honor-crafted": "Fields of Honor Crafted",
+          "blood-of-gladiators": "Blood of Gladiators",
+          "blood-of-gladiators-crafted": "Blood of Gladiators Crafted",
+          "drums-of-war": "Drums of War",
+          "drums-of-war-crafted": "Drums of War Crafted"
+        }
+      },
+      "burning-crusade": {
+        "name": "Burning Crusade",
+        "expansions": {
+          "the-hunt-for-illidan": "The Hunt for Illidan",
+          "servants-of-the-betrayer": "Servants of the Betrayer",
+          "march-of-the-legion": "March of the Legion"
+        }
+      },
+      "azeroth": {
+        "name": "Azeroth",
+        "expansions": {
+          "fires-of-outland": "Fires of Outland",
+          "through-the-dark-portal": "Through the Dark Portal",
+          "heroes-of-azeroth": "Heroes of Azeroth",
+          "azeroth-badges-of-justice": "Azeroth Badges of Justice",
+          "azeroth-crafted": "Azeroth Crafted"
+        }
+      }
+    }
+  },
+  "raid": {
+    "name": "Raid",
+    "blocks": {
+      "caverns-of-time": {
+        "name": "Caverns of Time",
+        "expansions": {
+          "caverns-of-time-raid": "Caverns of Time Raid",
+          "caverns-of-time-token": "Caverns of Time Token",
+          "caverns-of-time-treasure": "Caverns of Time Treasure"
+        }
+      },
+      "battle-of-the-aspects": {
+        "name": "Battle of the Aspects",
+        "expansions": {
+          "battle-of-the-aspects-chaos-mode": "Battle of the Aspects Chaos Mode",
+          "gift-of-the-aspects": "Gift of the Aspects",
+          "battle-of-the-aspects-hard-mode": "Battle of the Aspects Hard mode",
+          "battle-of-the-aspects-raid": "Battle of the Aspects Raid",
+          "battle-of-the-aspects-token": "Battle of the Aspects Token",
+          "battle-of-the-aspects-treasure": "Battle of the Aspects Treasure"
+        }
+      },
+      "assault-on-icecrown-citadel": {
+        "name": "Assault on Icecrown Citadel",
+        "expansions": {
+          "assault-on-icecrown-citadel-raid": "Assault on Icecrown Citadel Raid",
+          "assault-on-icecrown-citadel-treasure": "Assault on Icecrown Citadel Treasure"
+        }
+      },
+      "naxxramas": {
+        "name": "Naxxramas",
+        "expansions": {
+          "naxxramas-raid": "Naxxramas Raid",
+          "naxxramas-token": "Naxxramas Token",
+          "naxxramas-treasure": "Naxxramas Treasure"
+        }
+      },
+      "black-temple": {
+        "name": "Black temple",
+        "expansions": {
+          "black-temple-raid": "Black temple Raid",
+          "black-temple-token": "Black temple Token",
+          "black-temple-treasure": "Black temple Treasure"
+        }
+      },
+      "magtheridons-lair": {
+        "name": "Magtheridon's Lair",
+        "expansions": {
+          "magtheridons-lair-raid": "Magtheridon's Lair Raid",
+          "magtheridons-lair-treasure": "Magtheridon's Lair Token"
+        }
+      },
+      "molten-core": {
+        "name": "Molten Core",
+        "expansions": {
+          "molten-core-raid": "Molten Core Raid",
+          "molten-core-token": "Molten Core Token",
+          "molten-core-token-2": "Molten Core Token 2",
+          "molten-core-treasure": "Molten Core Treasure"
+        }
+      },
+      "onyxias-lair": {
+        "name": "Onyxia's Lair",
+        "expansions": {
+          "onyxias-lair-raid": "Onyxia's Lair Raid",
+          "onyxias-lair-event": "Onyxia's Lair Event",
+          "onyxias-lair-token": "Onyxia's Lair Token",
+          "onyxias-lair-treasure": "Onyxia's Lair Treasure"
+        }
+      }
+    }
+  },
+  "dungeon": {
+    "name": "Dungeon",
+    "blocks": {
+      "dungeon-decks-2011": {
+        "name": "Dungeon Decks 2011",
+        "expansions": {
+          "the-deadmines": "The Deadmines",
+          "scarlet-monastery": "Scarlet Monastery",
+          "shadowfang-keep": "Shadowfang Keep",
+          "dungeon-treasure": "Dungeon treasure"
+        }
+      }
+    }
+  },
+  "starter": {
+    "name": "Starter",
+    "blocks": {
+      "class-starters-2010": {
+        "name": "Class Starters 2010",
+        "expansions": {
+          "class-starters-2010": "Class Starters 2010"
+        }
+      },
+      "class-starters-2011": {
+        "name": "Class Starters 2011",
+        "expansions": {
+          "alliance-death-knight-2011": "Alliance Death Knight 2011",
+          "alliance-druid-2011": "Alliance Druid 2011",
+          "alliance-hunter-2011": "Alliance Hunter 2011",
+          "alliance-mage-2011": "Alliance Mage 2011",
+          "alliance-paladin-2011": "Alliance Paladin 2011",
+          "alliance-priest-2011": "Alliance Priest 2011",
+          "alliance-rogue-2011": "Alliance Rogue 2011",
+          "alliance-shaman-2011": "Alliance Shaman 2011",
+          "alliance-warlock-2011": "Alliance Warlock 2011",
+          "alliance-warrior-2011": "Alliance Warrior 2011",
+          "horde-death-knight-2011": "Horde Death Knight 2011",
+          "horde-druid-2011": "Horde Druid 2011",
+          "horde-hunter-2011": "Horde Hunter 2011",
+          "horde-mage-2011": "Horde Mage 2011",
+          "horde-paladin-2011": "Horde Paladin 2011",
+          "horde-priest-2011": "Horde Priest 2011",
+          "horde-rogue-2011": "Horde Rogue 2011",
+          "horde-shaman-2011": "Horde Shaman 2011",
+          "horde-warlock-2011": "Horde Warlock 2011",
+          "horde-warrior-2011": "Horde Warrior 2011",
+          "class-starters-promo": "Class Starters Promo"
+        }
+      },
+      "champion-decks-2012": {
+        "name": "Champion decks 2012",
+        "expansions": {
+          "dark-lady-sylvanas-windrunner": "Dark Lady Sylvanas Windrunner",
+          "elderlimb": "Elderlimb",
+          "hogger": "Hogger",
+          "jaina-proudmoore": "Jaina Proudmoore",
+          "murkdeep": "Murkdeep",
+          "champion-decks-promo": "Champion Decks Promo"
+        }
+      },
+      "class-starters-2013": {
+        "name": "Class Starters 2013",
+        "expansions": {
+          "alliance-hunter-2013": "Alliance Hunter 2013",
+          "alliance-priest-2013": "Alliance Priest 2013",
+          "alliance-rogue-2013": "Alliance Rogue 2013",
+          "alliance-shaman-2013": "Alliance Shaman 2013",
+          "alliance-warlock-2013": "Alliance Warlock 2013",
+          "horde-death-knight-2013": "Horde Death Knight 2013",
+          "horde-druid-2013": "Horde Druid 2013",
+          "horde-mage-2013": "Horde Mage 2013",
+          "horde-paladin-2013": "Horde Paladin 2013",
+          "horde-warrior-2013": "Horde Warrior 2013"
+        }
+      },
+      "death-knight-starter": {
+        "name": "Death Knight Starter",
+        "expansions": {
+          "death-knight-starter": "Death Knight Starter"
+        }
+      },
+      "drums-of-war-starter": {
+        "name": "Drums of War Starter",
+        "expansions": {
+          "drums-of-war-starter": "Drums of War Starter"
+        }
+      }
+    }
+  },
+  "special": {
+    "name": "Special",
+    "blocks": {
+      "feast-of-winter-vail": {
+        "name": "Feast of Winter Veil",
+        "expansions": {
+          "feast-of-winter-vail": "Feast of Winter Veil"
+        }
+      },
+      "feast-of-winter-veil-2012": {
+        "name": "Feast of Winter Veil 2012",
+        "expansions": {
+          "feast-of-winter-veil-2012": "Feast of Winter Veil 2012"
+        }
+      },
+      "arena-grand-melee": {
+        "name": "Arena grand melee",
+        "expansions": {
+          "arena-grand-melee": "Arena grand melee",
+          "arena-grand-melee-event": "Arena grand melee event",
+          "arena-grand-melee-blank": "Arena grand melee blank"
+        }
+      },
+      "darkmoon-faire": {
+        "name": "Darkmoon faire",
+        "expansions": {
+          "darkmoon-faire": "Darkmoon faire"
+        }
+      }
+    }
+  },
+  "promo": {
+    "name": "Promotional",
+    "blocks": {
+      "holiday-promos": {
+        "name": "Holidays Promos",
+        "expansions": {
+          "timewalkers-holiday-promos": "Timewalkers Holiday Promos",
+          "aftermath-holiday-promos": "Aftermath Holiday Promos",
+          "worldbreaker-holiday-promos": "Worldbreaker Holiday Promos"
+        }
+      },
+      "blizzcon": {
+        "name": "Blizzcon",
+        "expansions": {
+          "blizzcon-2007": "Blizzcon 2007",
+          "blizzcon-2011": "Blizzcon 2011"
+        }
+      },
+      "blizzard-employee": {
+        "name": "Blizzard Employee",
+        "expansions": {
+          "blizzard-employee-2009": "Blizzard Employee 2009",
+          "blizzard-employee-2010": "Blizzard Employee 2010"
+        }
+      },
+      "collectors-edition": {
+        "name": "Collector's editions",
+        "expansions": {
+          "burning-crusade-collectors-edition": "Burning Crusade Collector's Edition",
+          "wrath-of-the-lich-king-collectors-edition": "Wrath of the Lich King Collector's Edition",
+          "cataslysm-collectors-edition": "Cataslysm Collector's Edition"
+        }
+      },
+      "2011-showdown": {
+        "name": "2011 Showdown",
+        "expansions": {
+          "goblins-of-anarchy": "Goblins of Anarchy"
+        }
+      },
+      "drums-of-war-promos": {
+        "name": "Drums of War promos",
+        "expansions": {
+          "drums-of-war-promos": "Drums of War promos"
+        }
+      }
+    }
+  }
+}
