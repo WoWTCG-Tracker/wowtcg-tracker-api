@@ -22,6 +22,7 @@ jobs:
         poetry-version: ${{ matrix.poetry-version }}
     - name: Install dependecies
       run: |
+        mv .env.sample .env
         poetry install
     - name: Check if code linted
       run: |
