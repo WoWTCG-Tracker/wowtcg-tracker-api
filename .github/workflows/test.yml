@@ -46,7 +46,10 @@ jobs:
       #----------------------------------------------
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: |
+          poetry install --no-interaction --no-root
+          mv .env.sample .env
+          source $VENV
       #----------------------------------------------
       # install your root project, if required
       #----------------------------------------------
@@ -57,7 +60,6 @@ jobs:
       #----------------------------------------------
       - name: Lint
         run: |
-          mv .env.sample .env
           poetry run task lint
       - name: Unittest
         run: |
