@@ -15,7 +15,7 @@ server = TestClient(app)
 class TestApiGets(unittest.TestCase):
 
   def test_root(self):
-    response = server.get("/api/v1/")
+    response = server.get("/")
     self.assertEqual(response.status_code, 200)
     self.assertEqual(response.json(), "Hello world!")
 
