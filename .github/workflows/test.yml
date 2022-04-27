@@ -55,13 +55,14 @@ jobs:
         run: |
           poetry install --no-interaction
           mv .env.sample .env
-          source $VENV
       #----------------------------------------------
       #    add matrix specifics and run test suite
       #----------------------------------------------
       - name: Lint
         run: |
+          source $VENV
           poetry run task lint
       - name: Unittest
         run: |
+          source $VENV
           poetry run task test
