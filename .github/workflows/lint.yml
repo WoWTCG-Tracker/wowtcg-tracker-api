@@ -13,15 +13,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.10
-      - uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
     - name: Run poetry
-        uses: abatilo/actions-poetry@v2.0.0
-        with:
-          poetry-version: ${{ matrix.poetry-version }}
+      uses: abatilo/actions-poetry@v2.0.0
+      with:
+        poetry-version: ${{ matrix.poetry-version }}
     - name: Install dependecies
       run: |
         poetry install
     - name: Check if code linted
+      run: |
         poetry run task lint
