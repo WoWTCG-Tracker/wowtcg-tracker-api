@@ -19,7 +19,7 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-from api import database
+from api import database  # pylint: disable=wrong-import-position
 
 
 def print_section_end() -> None:
@@ -47,12 +47,10 @@ if __name__ == "__main__":
   # Ask user if he wants to delete all data from database
   ###
 
-  print(
-      f"{Fore.MAGENTA}ᓚᕬᗢ Wowtcg-tracker-api db fill script ᗢᕬᓗ{Style.RESET_ALL}"
-  )
-  print(
-      f"{Fore.YELLOW}⚠ This script will delete all data in database and import data from assets folder{Style.RESET_ALL}"
-  )
+  print(f"{Fore.MAGENTA}ᓚᕬᗢ Wowtcg-tracker-api "
+        f"db fill script ᗢᕬᓗ{Style.RESET_ALL}")
+  print(f"{Fore.YELLOW}⚠ This script will delete all data in database "
+        f"and import data from assets folder{Style.RESET_ALL}")
   to_continue = input(
       f"{Fore.YELLOW}⚠ Do you want to continue? [Y/n]:{Style.RESET_ALL} ")
   if to_continue.lower() == "n":
@@ -79,11 +77,14 @@ if __name__ == "__main__":
   ])
 
   #print(
-  #    f"{Fore.CYAN}Imported {Fore.YELLOW}{len(card_prints)}{Fore.CYAN} card prints of {Fore.YELLOW}{len(cards)}{Fore.CYAN} cards{Style.RESET_ALL}"
+  # f"{Fore.CYAN}Imported {Fore.YELLOW}{len(card_prints)}{Fore.CYAN}"
+  # f" card prints of {Fore.YELLOW}{len(cards)}{Fore.CYAN}"
+  # f" cards{Style.RESET_ALL}"
   #)
-  print(
-      f"{Fore.CYAN}Imported {Fore.YELLOW}{expansions_count}{Fore.CYAN} expansions from {Fore.YELLOW}{expansion_blocks_count}{Fore.CYAN} blocks of {Fore.YELLOW}{block_sets_count}{Fore.CYAN} sets{Style.RESET_ALL}"
-  )
+  print(f"{Fore.CYAN}Imported {Fore.YELLOW}{expansions_count}{Fore.CYAN}"
+        f" expansions from {Fore.YELLOW}{expansion_blocks_count}{Fore.CYAN}"
+        f" blocks of {Fore.YELLOW}{block_sets_count}{Fore.CYAN}"
+        f"sets{Style.RESET_ALL}")
   print_section_end()
 
   ###
@@ -91,23 +92,20 @@ if __name__ == "__main__":
   ###
   print(f"{Fore.CYAN}🛈 Deleting old sets from database{Style.RESET_ALL}")
   deleted_sets_count = asyncio.run(database.delete_all_block_sets(db=db))
-  print(
-      f"{Fore.CYAN}🛈 Deleted {Fore.YELLOW}{deleted_sets_count}{Fore.CYAN} old set{'' if deleted_sets_count == 1 else 's'}{Style.RESET_ALL}"
-  )
+  print(f"{Fore.CYAN}🛈 Deleted {Fore.YELLOW}{deleted_sets_count}{Fore.CYAN}"
+        f" old set{'' if deleted_sets_count == 1 else 's'}{Style.RESET_ALL}")
   print(f"{Fore.CYAN}🛈 Deleting old cards from database{Style.RESET_ALL}")
   deleted_cards_count = asyncio.run(database.delete_all_cards(db=db))
-  print(
-      f"{Fore.CYAN}🛈 Deleted {Fore.YELLOW}{deleted_cards_count}{Fore.CYAN} old card{'' if deleted_cards_count == 1 else 's'}{Style.RESET_ALL}"
-  )
+  print(f"{Fore.CYAN}🛈 Deleted {Fore.YELLOW}{deleted_cards_count}{Fore.CYAN}"
+        f" old card{'' if deleted_cards_count == 1 else 's'}{Style.RESET_ALL}")
   print_section_end()
 
   ###
   # Insert new data
   ###
   for block_set in expansions_dict:
-    print(
-        f"{Fore.CYAN}🛈 Inserting new set {Fore.YELLOW}{block_set}{Style.RESET_ALL}"
-    )
+    print(f"{Fore.CYAN}🛈 Inserting new set "
+          f"{Fore.YELLOW}{block_set}{Style.RESET_ALL}")
     tmp_block_set = asyncio.run(database.add_block_set(db=db, name=block_set))
     for expansion_block in progressbar(expansions_dict[block_set], block_set,
                                        "block"):
