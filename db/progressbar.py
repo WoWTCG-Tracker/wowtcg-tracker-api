@@ -7,13 +7,13 @@ which makes prisma a bit clunky.
 
 import sys
 from colorama import Fore, Style
-
+from typing import Generator
 
 def progressbar(iterable,
                 prefix="",
                 suffix="",
                 print_size=80,
-                file=sys.stdout) -> None:
+                file=sys.stdout) -> Generator:
   """Call in a loop to create terminal progress bar"""
 
   count = len(iterable)
