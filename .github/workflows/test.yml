@@ -54,15 +54,23 @@ jobs:
       - name: Install library
         run: |
           poetry install --no-interaction
+      #----------------------------------------------
+      #    Move sample env file
+      #----------------------------------------------
+      - name: Move env file
+        run: |
           mv .env.sample .env
       #----------------------------------------------
-      #    add matrix specifics and run test suite
+      #    Check if code is linted
       #----------------------------------------------
       - name: Lint
         run: |
-          source $VENV
+          poetry shell
           poetry run task lint
+      #----------------------------------------------
+      #    Run unit tests
+      #----------------------------------------------
       - name: Unittest
         run: |
-          source $VENV
+          poetry shell
           poetry run task test
