@@ -65,12 +65,12 @@ jobs:
       #----------------------------------------------
       - name: Lint
         run: |
-          poetry shell
+          source $VENV
           poetry run task lint
       #----------------------------------------------
       #    Run unit tests
       #----------------------------------------------
       - name: Unittest
         run: |
-          poetry shell
+          source $VENV
           poetry run task test
