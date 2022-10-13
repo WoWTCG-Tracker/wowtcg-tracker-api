@@ -1,0 +1,180 @@
+{
+  "Basic": {
+    "Timewalker": [
+      "Reign of Fire",
+      "Betrayal of the Guardian",
+      "War of the Ancients",
+      "Timewalkers",
+      "Timewalkers Badges of Justice",
+      "Timewalkers Crafted",
+      "Timewalkers Holiday Promos"
+    ],
+    "Aftermath": [
+      "Tomb of the Forgotten",
+      "Crown of the Heavens",
+      "Throne of the Tides",
+      "Aftermath Badges of Justice",
+      "Aftermath Crafted",
+      "Aftermath Holiday Promos"
+    ],
+    "Worldbreaker": [
+      "Twilight of the Dragons",
+      "War of the Elements",
+      "Worldbreaker",
+      "Worldbreaker Badges of Justice",
+      "Worldbreaker Crafted",
+      "Worldbreaker Holiday Promos"
+    ],
+    "Scourgewar": [
+      "Icecrown",
+      "Icecrown Badges",
+      "Icecrown Crafted",
+      "Wrathgate",
+      "Wrathgate Badges",
+      "Wrathgate Crafted",
+      "Scourgewar",
+      "Scourgewar Badges",
+      "Scourgewar Crafted"
+    ],
+    "Drums of War": [
+      "Fields of Honor",
+      "Fields of Honor Crafted",
+      "Blood of Gladiators",
+      "Blood of Gladiators Crafted",
+      "Drums of War",
+      "Drums of War Crafted",
+      "Drums of War Promos"
+    ],
+    "Burning Crusade": [
+      "The Hunt for Illidan",
+      "Servants of the Betrayer",
+      "March of the Legion"
+    ],
+    "Azeroth": [
+      "Fires of Outland",
+      "Through the Dark Portal",
+      "Heroes of Azeroth",
+      "Azeroth Badges of Justice",
+      "Azeroth Crafted"
+    ]
+  },
+  "Raid": {
+    "Caverns of Time": [
+      "Caverns of Time Raid",
+      "Caverns of Time Token",
+      "Caverns of Time Treasure"
+    ],
+    "Battle of the Aspects": [
+      "Battle of the Aspects Chaos Mode",
+      "Gift of the Aspects",
+      "Battle of the Aspects Hard mode",
+      "Battle of the Aspects Raid",
+      "Battle of the Aspects Token",
+      "Battle of the Aspects Treasure"
+    ],
+    "Assault on Icecrown Citadel": [
+      "Assault on Icecrown Citadel Raid",
+      "Assault on Icecrown Citadel Treasure"
+    ],
+    "Naxxramas": ["Naxxramas Raid", "Naxxramas Token", "Naxxramas Treasure"],
+    "Black temple": [
+      "Black temple Raid",
+      "Black temple Token",
+      "Black temple Treasure"
+    ],
+    "Magtheridon's Lair": [
+      "Magtheridon's Lair Raid",
+      "Magtheridon's Lair Treasure"
+    ],
+    "Molten Core": [
+      "Molten Core Raid",
+      "Molten Core Token",
+      "Molten Core Token 2",
+      "Molten Core Treasure"
+    ],
+    "Onyxia's Lair": [
+      "Onyxia's Lair Raid",
+      "Onyxia's Lair Event",
+      "Onyxia's Lair Token",
+      "Onyxia's Lair Treasure"
+    ]
+  },
+  "Dungeon": {
+    "Dungeon Decks 2011": [
+      "The Deadmines",
+      "Scarlet Monastery",
+      "Shadowfang Keep",
+      "Dungeon treasure"
+    ]
+  },
+  "Starter": {
+    "Class Starters 2010": ["Class Starters 2010"],
+    "Class Starters 2011": [
+      "Alliance Death Knight 2011",
+      "Alliance Druid 2011",
+      "Alliance Hunter 2011",
+      "Alliance Mage 2011",
+      "Alliance Paladin 2011",
+      "Alliance Priest 2011",
+      "Alliance Rogue 2011",
+      "Alliance Shaman 2011",
+      "Alliance Warlock 2011",
+      "Alliance Warrior 2011",
+      "Horde Death Knight 2011",
+      "Horde Druid 2011",
+      "Horde Hunter 2011",
+      "Horde Mage 2011",
+      "Horde Paladin 2011",
+      "Horde Priest 2011",
+      "Horde Rogue 2011",
+      "Horde Shaman 2011",
+      "Horde Warlock 2011",
+      "Horde Warrior 2011",
+      "Class Starters 2011 Promos"
+    ],
+    "Champion decks 2012": [
+      "Dark Lady Sylvanas Windrunner",
+      "Elderlimb",
+      "Hogger",
+      "Jaina Proudmoore",
+      "Murkdeep",
+      "Champion Decks 2012 Promos"
+    ],
+    "Class Starters 2013": [
+      "Alliance Hunter 2013",
+      "Alliance Priest 2013",
+      "Alliance Rogue 2013",
+      "Alliance Shaman 2013",
+      "Alliance Warlock 2013",
+      "Horde Death Knight 2013",
+      "Horde Druid 2013",
+      "Horde Mage 2013",
+      "Horde Paladin 2013",
+      "Horde Warrior 2013"
+    ],
+    "Death Knight Starter": ["Death Knight Starter"],
+    "Drums of War Starter": ["Drums of War Starter"]
+  },
+  "Special": {
+    "Feast of Winter Veil": [
+      "Feast of Winter Veil 2007",
+      "Feast of Winter Veil 2012"
+    ],
+    "Arena grand melee": [
+      "Arena grand melee",
+      "Arena grand melee event",
+      "Arena grand melee blank"
+    ],
+    "Darkmoon faire": ["Darkmoon faire"]
+  },
+  "Promotional": {
+    "Blizzcon": ["Blizzcon 2007", "Blizzcon 2011"],
+    "Blizzard Employee": ["Blizzard Employee 2009", "Blizzard Employee 2010"],
+    "Collector's editions": [
+      "Burning Crusade Collector's Edition",
+      "Wrath of the Lich King Collector's Edition",
+      "Cataslysm Collector's Edition"
+    ],
+    "2011 Showdown": ["Goblins of Anarchy"]
+  }
+}

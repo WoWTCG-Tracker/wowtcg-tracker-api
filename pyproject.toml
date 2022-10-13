@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "wowtcg-tracker-api"
+version = "0.1.0"
+description = "WoWTCG Tracker API App"
+license = "GPL-3.0-or-later"
+authors = ["Karel Bašta <bastakka@email.cz>"]
+readme = "README.md"
+homepage = "https://github.com/bastakka/wowtcg-tracker-api"
+documentation = "https://wowtcg-tracker-api.readthedocs.io"
+keywords = ["FastAPI", "Prisma", "WoWTCG"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.75.2"
+uvicorn = {extras = ["standard"], version = "^0.17.6"}
+colorama = "^0.4.4"
+pip = "^22.0.4"
+taskipy = "^1.10.1"
+prisma = "^0.6.4"
+python-slugify = "^6.1.2"
+dotenv = "^0.0.5"
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.13.7"
+yapf = "^0.32.0"
+beautifulsoup4 = "^4.11.1"
+toml = "^0.10.2"
+requests = "^2.27.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.yapf]
+based_on_style = "google"
+indent_width = 2
+spaces_before_comment = 2
+split_before_logical_operator = true
+
+[tool.taskipy.settings]
+runner = "dotenv run"
+
+[tool.taskipy.tasks]
+test = { cmd = "python -m unittest tests/test_*.py", help = "Runs all unit tests" }
+lint = { cmd = "pylint tests api db prisma/prisma_model_camel_to_pascal.py", help = "Lints code using pylint" } 
+check_formatting = { cmd = "yapf --diff -p -r -vv tests api", help = "Checks if code is linted" }
+dev = { cmd = "uvicorn api:app --reload", help = "Runs development server" }
+prod = { cmd = "uvicorn api:app", help = "Runs production server" }
+setup_db = { cmd = "prisma db push", help = "Setups database and generates ORM client (Needed for api)" }
+migrate = { cmd = "poetry run task setup_db & python db/fill_db.py", help = "Fills database with premade expansions, cards and card prints data" }

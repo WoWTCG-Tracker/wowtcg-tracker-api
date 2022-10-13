@@ -1,0 +1,137 @@
+generator client {
+  provider  = "prisma-client-py"
+  interface = "asyncio"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model BlockSet {
+  @@map("block_set")
+  id              Int               @id @default(autoincrement()) @db.UnsignedInt
+  name            String            @unique(map: "name_UNIQUE") @db.VarChar(32)
+  expansion_block ExpansionBlock[]
+}
+
+model CardPrint {
+  @@map("card_print")
+  id                        Int                         @id @default(autoincrement()) @db.UnsignedInt
+  card_id                   Int                         @db.UnsignedInt
+  expansion_id              Int                         @db.UnsignedInt
+  id_in_expansion           Int                         @db.UnsignedInt
+  rarity CardPrintRarity
+  text_front                String?                     @db.VarChar(1024)
+  text_back                 String?                     @db.VarChar(1024)
+  collection_has_card_print CollectionHasCardPrint[]
+  deck Deck[]
+  deck_has_card_print DeckHasCardPrint[]
+  user_has_card_print UserHasCardPrint[]
+
+  @@index([card_id], map: "fk_card_print_card1_idx")
+  @@index([expansion_id], map: "fk_card_print_expansion1_idx")
+}
+
+model Collection {
+  @@map("collection")
+  id                        Int                         @unique(map: "id_UNIQUE") @default(autoincrement()) @db.UnsignedInt
+  name                      String                      @db.VarChar(128)
+  user_id                   Int                         @db.UnsignedInt
+  description               String?                     @db.VarChar(2048)
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade, map: "fk_collection_user1")
+  collection_has_card_print CollectionHasCardPrint[]
+
+  @@id([id, user_id])
+  @@index([user_id], map: "fk_collection_user1_idx")
+}
+
+model CollectionHasCardPrint {
+  @@map("collection_has_card_print")
+  collection_id Int        @db.UnsignedInt
+  card_print_id Int        @db.UnsignedInt
+  quantity      Int        @db.UnsignedInt
+  card_print CardPrint @relation(fields: [card_print_id], references: [id], onDelete: Cascade, map: "fk_collection_has_card_print_card_print1")
+  collection Collection @relation(fields: [collection_id], references: [id], onDelete: Cascade, map: "fk_collection_has_card_print_collection1")
+
+  @@id([collection_id, card_print_id])
+  @@index([card_print_id], map: "fk_collection_has_card_print_card_print1_idx")
+  @@index([collection_id], map: "fk_collection_has_card_print_collection1_idx")
+}
+
+model Deck {
+  @@map("deck")
+  id                  Int                   @unique(map: "id_UNIQUE") @default(autoincrement()) @db.UnsignedInt
+  name                String                @db.VarChar(128)
+  user_id             Int                   @db.UnsignedInt
+  description         String?               @db.VarChar(2048)
+  hero_card_print_id  Int                   @db.UnsignedInt
+  card_print CardPrint @relation(fields: [hero_card_print_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_deck_card_print1")
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade, map: "fk_deck_user1")
+  deck_has_card_print DeckHasCardPrint[]
+
+  @@id([id, user_id, hero_card_print_id])
+  @@index([hero_card_print_id], map: "fk_deck_card_print1_idx")
+  @@index([user_id], map: "fk_deck_user1_idx")
+}
+
+model DeckHasCardPrint {
+  @@map("deck_has_card_print")
+  deck_id       Int        @db.UnsignedInt
+  card_print_id Int        @db.UnsignedInt
+  quantity      Int        @db.UnsignedInt
+  card_print CardPrint @relation(fields: [card_print_id], references: [id], onDelete: Cascade, map: "fk_deck_has_card_print_card_print1")
+  deck Deck @relation(fields: [deck_id], references: [id], onDelete: Cascade, map: "fk_deck_has_card_print_deck1")
+
+  @@id([deck_id, card_print_id])
+  @@index([card_print_id], map: "fk_deck_has_card_print_card_print1_idx")
+  @@index([deck_id], map: "fk_deck_has_card_print_deck1_idx")
+}
+
+model ExpansionBlock {
+  @@map("expansion_block")
+  id           Int       @default(autoincrement()) @db.UnsignedInt
+  name         String    @unique(map: "name_UNIQUE") @db.VarChar(32)
+  block_set_id Int       @db.UnsignedInt
+  block_set BlockSet @relation(fields: [block_set_id], references: [id], onDelete: Cascade, map: "fk_block_set1")
+
+  @@id([id, block_set_id])
+  @@index([block_set_id], map: "fk_block_set1_idx")
+}
+
+model User {
+  @@map("user")
+  id                  Int                   @id @unique(map: "id_UNIQUE") @default(autoincrement()) @db.UnsignedInt
+  nickname            String                @unique(map: "nick_UNIQUE") @db.VarChar(32)
+  email               String                @unique(map: "email_UNIQUE") @db.VarChar(128)
+  user_role UserUserRole?
+  collection Collection[]
+  deck Deck[]
+  user_has_card_print UserHasCardPrint[]
+}
+
+model UserHasCardPrint {
+  @@map("user_has_card_print")
+  user_id       Int        @db.UnsignedInt
+  card_print_id Int        @db.UnsignedInt
+  card_print CardPrint @relation(fields: [card_print_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_has_card_print1_card_print1")
+  user User @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user_has_card_print1_user1")
+
+  @@id([user_id, card_print_id])
+  @@index([card_print_id], map: "fk_user_has_card_print1_card_print1_idx")
+  @@index([user_id], map: "fk_user_has_card_print1_user1_idx")
+}
+
+enum CardPrintRarity {
+  Common
+  Uncommon
+  Rare
+  Epic
+  Legendary
+}
+
+enum UserUserRole {
+  Admin
+  Basic
+  Premium
+}
